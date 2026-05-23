@@ -117,7 +117,6 @@ struct VideoOverlayView: View {
 
     private func actionRail(metrics: FeedOverlayMetrics) -> some View {
         VStack(spacing: 18) {
-            // s42 Mute control uses a real label, not just an icon name.
             FeedActionButton(systemName: isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill", label: isMuted ? "Unmute" : "Mute", size: metrics.actionButtonSize, action: onMuteToggle)
             FeedActionButton(systemName: "arrow.clockwise", label: "Retry", size: metrics.actionButtonSize, action: onRetry)
         }

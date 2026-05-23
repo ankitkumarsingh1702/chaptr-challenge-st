@@ -11,7 +11,6 @@ struct PlaybackWindow: Equatable {
             return nil
         }
 
-        // s32 Keep previous 1, active, and next 2 videos in memory.
         let clampedActive = min(max(activeIndex, 0), totalCount - 1)
         let lowerBound = max(0, clampedActive - previousWarmCount)
         let upperBound = min(totalCount - 1, clampedActive + nextPreloadCount)

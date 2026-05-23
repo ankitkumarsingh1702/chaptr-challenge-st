@@ -70,7 +70,6 @@ final class PlaybackCoordinator: ObservableObject {
         }
         activeVideoID = newActiveID
         pauseAll(except: activeVideoID)
-        // s24 Only the current active video is allowed to play.
         playActiveIfNeeded()
     }
 
@@ -101,7 +100,6 @@ final class PlaybackCoordinator: ObservableObject {
     }
 
     func retry(video: FeedVideo, isActive: Bool) {
-        // s44 Retry drops the old player and builds a fresh one.
         release(videoID: video.id)
         prepare(video: video)
         if isActive {
@@ -218,7 +216,6 @@ final class PlaybackCoordinator: ObservableObject {
     }
 
     private func handleAudioInterruption(_ notification: Notification) {
-        // s54 Siri or audio interruptions pause and resume only when allowed.
         guard let typeValue = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? UInt,
               let type = AVAudioSession.InterruptionType(rawValue: typeValue) else { return }
 
@@ -241,7 +238,6 @@ final class PlaybackCoordinator: ObservableObject {
     }
 
     private func handleRouteChange(_ notification: Notification) {
-        // s55 Headphone disconnect pauses playback and shows play state.
         guard let reasonValue = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? UInt,
               let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue),
               reason == .oldDeviceUnavailable else { return }
@@ -271,7 +267,6 @@ final class PlaybackCoordinator: ObservableObject {
     }
 
     private func releasePlayersOutsideWindow(retainedIDs: Set<Int>) {
-        // s33 Players outside the preload window are released for memory.
         entries.keys.filter { retainedIDs.contains($0) == false }.forEach(release)
         states.keys.filter { retainedIDs.contains($0) == false }.forEach { states.removeValue(forKey: $0) }
         progress.keys.filter { retainedIDs.contains($0) == false }.forEach { progress.removeValue(forKey: $0) }

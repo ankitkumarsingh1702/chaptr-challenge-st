@@ -27,7 +27,6 @@ final class ForYouViewModel: ObservableObject {
             let catalog = try await repository.loadCatalog()
             videos = catalog.videos
             loadState = videos.isEmpty ? .empty : .loaded
-            // s14 First loaded video becomes active so autoplay can start.
             updateActiveIndex(0)
         } catch {
             loadState = .failed(error.localizedDescription)
@@ -40,11 +39,9 @@ final class ForYouViewModel: ObservableObject {
         }
 
         activeIndex = index
-        // s23 Old/off-screen videos pause before the new active item plays.
         playbackCoordinator.pauseAll(except: videos[index].id)
 
         pendingWindowUpdate?.cancel()
-        // s31 Fast swipes are debounced before rebuilding the player window.
         let work = DispatchWorkItem { [weak self] in
             guard let self else { return }
             self.playbackCoordinator.prepareWindow(activeIndex: index, videos: self.videos)
@@ -63,12 +60,10 @@ final class ForYouViewModel: ObservableObject {
     }
 
     func retry(video: FeedVideo) {
-        // s43 Retry bridges the UI action into fresh playback preparation.
         playbackCoordinator.retry(video: video, isActive: video.id == activeVideo?.id)
     }
 
     func handleScenePhase(isActive: Bool) {
-        // s53 App lifecycle pauses in background and resumes on foreground.
         if isActive {
             playbackCoordinator.resumeForForeground()
         } else {

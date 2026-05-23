@@ -4,7 +4,6 @@ struct ForYouFeedView: View {
     @ObservedObject var viewModel: ForYouViewModel
     @EnvironmentObject var networkMonitor: NetworkMonitor
     @Environment(\.scenePhase) private var scenePhase
-    // s56 SceneStorage keeps the last active video index across relaunch.
     @SceneStorage("activeVideoIndex") private var savedIndex: Int = 0
     @State private var scrollPositionID: Int?
     @State private var didRestoreScrollPosition = false
@@ -44,7 +43,6 @@ struct ForYouFeedView: View {
     }
 
     private var feed: some View {
-        // s21 This is the full-screen vertical paging feed.
         ScrollView(.vertical) {
             LazyVStack(spacing: 0) {
                 ForEach(Array(viewModel.videos.enumerated()), id: \.element.id) { index, video in
@@ -71,7 +69,6 @@ struct ForYouFeedView: View {
         .ignoresSafeArea()
         .onAppear(perform: restoreScrollPositionIfNeeded)
         .onChange(of: scrollPositionID) { _, newID in
-            // s22 Scroll position changes decide which video is active.
             updateActivePage(for: newID)
         }
         .onChange(of: viewModel.activeIndex) { _, newIndex in

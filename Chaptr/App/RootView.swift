@@ -4,7 +4,6 @@ import UIKit
 #endif
 
 struct RootView: View {
-    // s12 Root setup connects catalog loading, playback, and network state.
     @StateObject private var viewModel = ForYouViewModel(
         repository: BundleCatalogRepository(),
         playbackCoordinator: PlaybackCoordinator()
@@ -15,7 +14,6 @@ struct RootView: View {
         ForYouFeedView(viewModel: viewModel)
             .environmentObject(networkMonitor)
             .task {
-                // s13 Catalog loads once when the root view appears.
                 await viewModel.load()
             }
             .onReceive(memoryWarningPublisher) { _ in
@@ -23,7 +21,6 @@ struct RootView: View {
             }
             .onReceive(networkMonitor.$isConnected) { connected in
                 if connected {
-                    // s52 Network recovery refreshes the active playback window.
                     viewModel.handleConnectivityRestored()
                 }
             }

@@ -9,3 +9,13 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+# Local proof, recording, and submission scratch artifacts.
+.derivedData-profiling/
+Proof/
+Exercise/
+SUBMISSION_NOTE.md
+*.mov
+*.mp4
+*.pdf
+*.xcresult
+*.trace

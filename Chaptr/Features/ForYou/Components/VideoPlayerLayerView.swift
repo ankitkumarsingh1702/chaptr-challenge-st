@@ -14,7 +14,6 @@ struct VideoPlayerLayerView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: PlayerLayerContainer, context: Context) {
-        // s34 Avoid resetting the same player during rapid SwiftUI updates.
         if uiView.playerLayer.player !== player {
             uiView.playerLayer.player = player
         }

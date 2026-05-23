@@ -5,7 +5,8 @@ Native SwiftUI prototype for Chaptr's mobile engineering exercise: a full-screen
 Walkthrough:
 
 - App demo: [ChaptriOSAppDemo.mp4](https://drive.google.com/file/d/1E_TLC4qOriaQdwq8-RF0IpOClD3C_Xd-/view?usp=drive_link)
-- Instrumentation addendum: [ChaptrInstrumentaionDemo.mov](https://drive.google.com/file/d/14k-LrziczlCUGaK5xzlmpo132ikPFjEa/view?usp=drive_link)
+- Instrumentation addendum: [ChaptrInstrumentationDemo.mov](https://drive.google.com/file/d/14k-LrziczlCUGaK5xzlmpo132ikPFjEa/view?usp=drive_link)
+- Codebase quick review: [ChaptrCodeBaseQuickReview.mov](https://drive.google.com/file/d/1-VCmaStc43pHRbDE2q0MueHPoZkmAmCQ/view?usp=sharing)
 
 ## Build And Run
 

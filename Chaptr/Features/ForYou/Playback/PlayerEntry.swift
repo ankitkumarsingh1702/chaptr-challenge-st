@@ -27,7 +27,6 @@ final class PlayerEntry {
     }
 
     func startLoadingTimeout(timeout: TimeInterval = 15, onTimeout: @escaping () -> Void) {
-        // s51 Slow loads fail after 15 seconds instead of buffering forever.
         cancelLoadingTimeout()
         let work = DispatchWorkItem { onTimeout() }
         loadingTimer = work

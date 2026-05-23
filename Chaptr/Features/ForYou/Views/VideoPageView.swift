@@ -29,14 +29,12 @@ struct VideoPageView: View {
         }
         .clipped()
         .onTapGesture {
-            // s41 Tapping the active video toggles play and pause.
             if isActive { onPlayPauseToggle() }
         }
         .accessibilityElement(children: .contain)
         .accessibilityLabel("\(video.title), \(DurationFormatter.shortLabel(seconds: video.duration))")
         .accessibilityAddTraits(.isButton)
         .accessibilityAction(named: "Toggle playback") {
-            // s57 VoiceOver users can trigger the same play/pause action.
             if isActive { onPlayPauseToggle() }
         }
     }
