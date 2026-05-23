@@ -90,11 +90,13 @@ struct VideoOverlayView: View {
                     .font(metrics.titleFont.weight(.bold))
                     .lineLimit(2)
                     .minimumScaleFactor(metrics.minimumScaleFactor)
+                    .accessibilityIdentifier("feed-title")
                 Text(description)
                     .font(metrics.descriptionFont)
                     .foregroundStyle(.white.opacity(0.86))
                     .lineLimit(metrics.descriptionLineLimit)
                     .minimumScaleFactor(metrics.minimumScaleFactor)
+                    .accessibilityIdentifier("feed-description")
                 if metrics.showsTags, !tags.isEmpty {
                     HStack(spacing: 6) {
                         ForEach(tags, id: \.self) { tag in

@@ -13,6 +13,7 @@ struct ForYouFeedView: View {
             Color.black.ignoresSafeArea()
             content
             connectionBanner
+            automationAccessibilityElements
         }
         .preferredColorScheme(.dark)
         .persistentSystemOverlays(.hidden)
@@ -63,6 +64,7 @@ struct ForYouFeedView: View {
             }
             .scrollTargetLayout()
         }
+        .accessibilityIdentifier("feed-scroll-view")
         .scrollIndicators(.hidden)
         .scrollTargetBehavior(.paging)
         .scrollPosition(id: $scrollPositionID)
@@ -73,6 +75,30 @@ struct ForYouFeedView: View {
         }
         .onChange(of: viewModel.activeIndex) { _, newIndex in
             savedIndex = newIndex
+        }
+    }
+
+    @ViewBuilder
+    private var automationAccessibilityElements: some View {
+        if shouldExposeAutomationIdentifiers, viewModel.loadState == .loaded, let activeVideo = viewModel.activeVideo {
+            VStack {
+                Color.clear
+                    .frame(width: 1, height: 1)
+                    .accessibilityElement()
+                    .accessibilityIdentifier("active-video-index")
+                    .accessibilityLabel("Active video \(viewModel.activeIndex + 1) of \(viewModel.videos.count)")
+                Color.clear
+                    .frame(width: 1, height: 1)
+                    .accessibilityElement()
+                    .accessibilityIdentifier("feed-title")
+                    .accessibilityLabel(activeVideo.title)
+                Color.clear
+                    .frame(width: 1, height: 1)
+                    .accessibilityElement()
+                    .accessibilityIdentifier("feed-description")
+                    .accessibilityLabel(viewModel.description(for: activeVideo))
+            }
+            .allowsHitTesting(false)
         }
     }
 
@@ -108,7 +134,7 @@ struct ForYouFeedView: View {
         guard !didRestoreScrollPosition, viewModel.videos.isEmpty == false else { return }
         didRestoreScrollPosition = true
 
-        let restoredIndex = viewModel.videos.indices.contains(savedIndex) ? savedIndex : 0
+        let restoredIndex = shouldResetSavedPosition ? 0 : (viewModel.videos.indices.contains(savedIndex) ? savedIndex : 0)
         scrollPositionID = viewModel.videos[restoredIndex].id
         if restoredIndex != viewModel.activeIndex {
             viewModel.updateActiveIndex(restoredIndex)
@@ -123,6 +149,14 @@ struct ForYouFeedView: View {
         }
 
         viewModel.updateActiveIndex(index)
+    }
+
+    private var shouldResetSavedPosition: Bool {
+        ProcessInfo.processInfo.arguments.contains("-ChaptrResetFeedPosition")
+    }
+
+    private var shouldExposeAutomationIdentifiers: Bool {
+        ProcessInfo.processInfo.arguments.contains("-ChaptrExposeAutomationIdentifiers")
     }
 }
 

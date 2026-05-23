@@ -28,18 +28,22 @@
 		B017 /* VideoPlayerLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017 /* VideoPlayerLayerView.swift */; };
 		B018 /* VideoOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F018 /* VideoOverlayView.swift */; };
 		B019 /* FeedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F019 /* FeedActionButton.swift */; };
-		B020 /* LoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F020 /* LoadingOverlayView.swift */; };
-		B021 /* TagBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021 /* TagBuilder.swift */; };
-		B022 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022 /* NetworkMonitor.swift */; };
-		B101 /* for-you.json in Resources */ = {isa = PBXBuildFile; fileRef = F101 /* for-you.json */; };
-		B102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F102 /* Assets.xcassets */; };
+			B020 /* LoadingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F020 /* LoadingOverlayView.swift */; };
+			B021 /* TagBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021 /* TagBuilder.swift */; };
+			B022 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022 /* NetworkMonitor.swift */; };
+			B023 /* VisualDescriptionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F023 /* VisualDescriptionComposer.swift */; };
+			B024 /* VideoDescriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F024 /* VideoDescriptionService.swift */; };
+			B101 /* for-you.json in Resources */ = {isa = PBXBuildFile; fileRef = F101 /* for-you.json */; };
+			B102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F102 /* Assets.xcassets */; };
 		BT01 /* CatalogRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT01 /* CatalogRepositoryTests.swift */; };
 		BT02 /* DescriptionBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT02 /* DescriptionBuilderTests.swift */; };
 		BT03 /* PlaybackWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT03 /* PlaybackWindowTests.swift */; };
 		BT04 /* ForYouViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT04 /* ForYouViewModelTests.swift */; };
-		BT05 /* DurationFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT05 /* DurationFormatterTests.swift */; };
-		BT06 /* TagBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT06 /* TagBuilderTests.swift */; };
-		BT07 /* PlaybackCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT07 /* PlaybackCoordinatorTests.swift */; };
+			BT05 /* DurationFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT05 /* DurationFormatterTests.swift */; };
+			BT06 /* TagBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT06 /* TagBuilderTests.swift */; };
+			BT07 /* PlaybackCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT07 /* PlaybackCoordinatorTests.swift */; };
+			BT08 /* VisualDescriptionComposerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT08 /* VisualDescriptionComposerTests.swift */; };
+			BT09 /* VideoDescriptionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT09 /* VideoDescriptionServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,10 +86,12 @@
 		F017 /* VideoPlayerLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerLayerView.swift; sourceTree = "<group>"; };
 		F018 /* VideoOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOverlayView.swift; sourceTree = "<group>"; };
 		F019 /* FeedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedActionButton.swift; sourceTree = "<group>"; };
-		F020 /* LoadingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayView.swift; sourceTree = "<group>"; };
-		F021 /* TagBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBuilder.swift; sourceTree = "<group>"; };
-		F022 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
-		F101 /* for-you.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "for-you.json"; sourceTree = "<group>"; };
+			F020 /* LoadingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlayView.swift; sourceTree = "<group>"; };
+			F021 /* TagBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBuilder.swift; sourceTree = "<group>"; };
+			F022 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+			F023 /* VisualDescriptionComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualDescriptionComposer.swift; sourceTree = "<group>"; };
+			F024 /* VideoDescriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDescriptionService.swift; sourceTree = "<group>"; };
+			F101 /* for-you.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "for-you.json"; sourceTree = "<group>"; };
 		F102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEX01 /* CHALLENGE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHALLENGE.md; sourceTree = "<group>"; };
 		FEX02 /* Instagram iOS 400.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instagram iOS 400.png"; sourceTree = "<group>"; };
@@ -94,9 +100,11 @@
 		FT02 /* DescriptionBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionBuilderTests.swift; sourceTree = "<group>"; };
 		FT03 /* PlaybackWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackWindowTests.swift; sourceTree = "<group>"; };
 		FT04 /* ForYouViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewModelTests.swift; sourceTree = "<group>"; };
-		FT05 /* DurationFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationFormatterTests.swift; sourceTree = "<group>"; };
-		FT06 /* TagBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBuilderTests.swift; sourceTree = "<group>"; };
-		FT07 /* PlaybackCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackCoordinatorTests.swift; sourceTree = "<group>"; };
+			FT05 /* DurationFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationFormatterTests.swift; sourceTree = "<group>"; };
+			FT06 /* TagBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBuilderTests.swift; sourceTree = "<group>"; };
+			FT07 /* PlaybackCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackCoordinatorTests.swift; sourceTree = "<group>"; };
+			FT08 /* VisualDescriptionComposerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualDescriptionComposerTests.swift; sourceTree = "<group>"; };
+			FT09 /* VideoDescriptionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDescriptionServiceTests.swift; sourceTree = "<group>"; };
 		PAPP001 /* Chaptr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chaptr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		PTEST01 /* ChaptrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChaptrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -271,9 +279,11 @@
 			isa = PBXGroup;
 			children = (
 				F007 /* DurationFormatter.swift */,
-				F008 /* DescriptionBuilder.swift */,
-				F021 /* TagBuilder.swift */,
-				F022 /* NetworkMonitor.swift */,
+					F008 /* DescriptionBuilder.swift */,
+					F023 /* VisualDescriptionComposer.swift */,
+					F024 /* VideoDescriptionService.swift */,
+					F021 /* TagBuilder.swift */,
+					F022 /* NetworkMonitor.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -334,10 +344,12 @@
 				FT02 /* DescriptionBuilderTests.swift */,
 				FT03 /* PlaybackWindowTests.swift */,
 				FT04 /* ForYouViewModelTests.swift */,
-				FT05 /* DurationFormatterTests.swift */,
-				FT06 /* TagBuilderTests.swift */,
-				FT07 /* PlaybackCoordinatorTests.swift */,
-			);
+					FT05 /* DurationFormatterTests.swift */,
+					FT06 /* TagBuilderTests.swift */,
+					FT07 /* PlaybackCoordinatorTests.swift */,
+					FT08 /* VisualDescriptionComposerTests.swift */,
+					FT09 /* VideoDescriptionServiceTests.swift */,
+				);
 			path = ChaptrTests;
 			sourceTree = "<group>";
 		};
@@ -499,9 +511,11 @@
 				B018 /* VideoOverlayView.swift in Sources */,
 				B019 /* FeedActionButton.swift in Sources */,
 				B020 /* LoadingOverlayView.swift in Sources */,
-				B021 /* TagBuilder.swift in Sources */,
-				B022 /* NetworkMonitor.swift in Sources */,
-			);
+					B021 /* TagBuilder.swift in Sources */,
+					B022 /* NetworkMonitor.swift in Sources */,
+					B023 /* VisualDescriptionComposer.swift in Sources */,
+					B024 /* VideoDescriptionService.swift in Sources */,
+				);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		SRCTEST01 /* Sources */ = {
@@ -512,10 +526,12 @@
 				BT02 /* DescriptionBuilderTests.swift in Sources */,
 				BT03 /* PlaybackWindowTests.swift in Sources */,
 				BT04 /* ForYouViewModelTests.swift in Sources */,
-				BT05 /* DurationFormatterTests.swift in Sources */,
-				BT06 /* TagBuilderTests.swift in Sources */,
-				BT07 /* PlaybackCoordinatorTests.swift in Sources */,
-			);
+					BT05 /* DurationFormatterTests.swift in Sources */,
+					BT06 /* TagBuilderTests.swift in Sources */,
+					BT07 /* PlaybackCoordinatorTests.swift in Sources */,
+					BT08 /* VisualDescriptionComposerTests.swift in Sources */,
+					BT09 /* VideoDescriptionServiceTests.swift in Sources */,
+				);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */

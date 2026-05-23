@@ -6,8 +6,28 @@ final class ChaptrInteractionTests: XCTestCase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
+        app.launchArguments = [
+            "-ChaptrResetFeedPosition",
+            "-ChaptrExposeAutomationIdentifiers",
+            "-ChaptrUseFakeMLDescriptions",
+        ]
         app.launch()
         waitForFeed()
+    }
+
+    func testDescriptionAppearsAndCanUpdateFromDeterministicMLMode() {
+        let description = descriptionElement
+        let initialText = description.label
+        XCTAssertFalse(initialText.isEmpty)
+
+        let enrichedText = "A warm ambient clip built around flame, glow, and slow visual rhythm."
+        if initialText != enrichedText {
+            let predicate = NSPredicate(format: "label == %@", enrichedText)
+            expectation(for: predicate, evaluatedWith: description)
+            waitForExpectations(timeout: 3)
+        }
+
+        XCTAssertEqual(description.label, enrichedText)
     }
 
     func testContinuousScrollingForLiveProof() {
@@ -17,6 +37,7 @@ final class ChaptrInteractionTests: XCTestCase {
             swipeToNextVideo(duration: 0.08)
             Thread.sleep(forTimeInterval: 0.28)
         }
+        XCTAssertTrue(descriptionElement.exists)
     }
 
     func testFiftyPlusScrollMemoryWindow() {
@@ -28,6 +49,7 @@ final class ChaptrInteractionTests: XCTestCase {
             Thread.sleep(forTimeInterval: 0.14)
         }
         addScreenAttachment(named: "scroll-60")
+        XCTAssertTrue(descriptionElement.exists)
     }
 
     func testRapidSwipingSkipsFiveItemsInOneSecond() {
@@ -36,6 +58,7 @@ final class ChaptrInteractionTests: XCTestCase {
             Thread.sleep(forTimeInterval: 0.13)
         }
         addScreenAttachment(named: "rapid-swipe-end")
+        XCTAssertTrue(descriptionElement.exists)
     }
 
     func testBackgroundAndRelaunchPausePath() {
@@ -50,7 +73,8 @@ final class ChaptrInteractionTests: XCTestCase {
 
     private func waitForFeed() {
         XCTAssertTrue(app.wait(for: .runningForeground, timeout: 8))
-        XCTAssertTrue(app.staticTexts["Chaptr"].waitForExistence(timeout: 10))
+        XCTAssertTrue(feedElement.waitForExistence(timeout: 10))
+        XCTAssertTrue(descriptionElement.waitForExistence(timeout: 5))
     }
 
     private func swipeToNextVideo(duration: TimeInterval) {
@@ -64,5 +88,13 @@ final class ChaptrInteractionTests: XCTestCase {
         attachment.name = name
         attachment.lifetime = .keepAlways
         add(attachment)
+    }
+
+    private var feedElement: XCUIElement {
+        app.descendants(matching: .any)["feed-scroll-view"]
+    }
+
+    private var descriptionElement: XCUIElement {
+        app.descendants(matching: .any)["feed-description"]
     }
 }

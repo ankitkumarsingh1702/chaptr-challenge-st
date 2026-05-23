@@ -28,6 +28,7 @@ struct VideoPageView: View {
             )
         }
         .clipped()
+        .accessibilityIdentifier("feed-page-\(video.id)")
         .onTapGesture {
             if isActive { onPlayPauseToggle() }
         }
