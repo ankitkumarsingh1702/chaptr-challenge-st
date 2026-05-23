@@ -32,6 +32,7 @@
 		B021 /* TagBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021 /* TagBuilder.swift */; };
 		B022 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022 /* NetworkMonitor.swift */; };
 		B101 /* for-you.json in Resources */ = {isa = PBXBuildFile; fileRef = F101 /* for-you.json */; };
+		B102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F102 /* Assets.xcassets */; };
 		BT01 /* CatalogRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT01 /* CatalogRepositoryTests.swift */; };
 		BT02 /* DescriptionBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT02 /* DescriptionBuilderTests.swift */; };
 		BT03 /* PlaybackWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FT03 /* PlaybackWindowTests.swift */; };
@@ -85,6 +86,7 @@
 		F021 /* TagBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBuilder.swift; sourceTree = "<group>"; };
 		F022 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		F101 /* for-you.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "for-you.json"; sourceTree = "<group>"; };
+		F102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEX01 /* CHALLENGE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHALLENGE.md; sourceTree = "<group>"; };
 		FEX02 /* Instagram iOS 400.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instagram iOS 400.png"; sourceTree = "<group>"; };
 		FEX03 /* YouTube iOS 218.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YouTube iOS 218.png"; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				F101 /* for-you.json */,
+				F102 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B101 /* for-you.json in Resources */,
+				B102 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +589,7 @@
 		APPDBG01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -614,6 +619,7 @@
 		APPREL01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

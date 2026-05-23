@@ -68,8 +68,13 @@ struct VideoOverlayView: View {
 
     private func header(metrics: FeedOverlayMetrics) -> some View {
         HStack(spacing: 8) {
-            Text("Chaptr")
-                .font(metrics.headerFont.weight(.bold))
+            Image("ChaptrWordmark")
+                .renderingMode(.template)
+                .resizable()
+                .scaledToFit()
+                .frame(width: metrics.logoWidth, height: metrics.logoHeight)
+                .foregroundStyle(.white)
+                .accessibilityLabel("Chaptr")
             Text("For You")
                 .font(metrics.headerFont.weight(.semibold))
                 .foregroundStyle(.white.opacity(0.72))
@@ -176,6 +181,8 @@ private struct FeedOverlayMetrics {
     var textTrailingReserve: CGFloat { isNarrow ? 56 : 72 }
     var textSpacing: CGFloat { isShort ? 6 : 8 }
     var headerFont: Font { isShort ? .subheadline : .headline }
+    var logoWidth: CGFloat { isShort ? 76 : 92 }
+    var logoHeight: CGFloat { isShort ? 16 : 20 }
     var titleFont: Font { isNarrow || isShort ? .headline : .title3 }
     var descriptionFont: Font { isNarrow || isShort ? .caption : .subheadline }
     var descriptionLineLimit: Int { isShort ? 2 : 3 }
